@@ -10,11 +10,7 @@ With Specy Network, users can seamlessly execute their Dapp in the future based 
 
 To meet these high expectations, Specy Network utilizes a trusted specification based on the domain-specific asset language (DSAL). This empowers developers to easily define task conditions and required outcomes using both on-chain and off-chain data. Moreover, the network ensures reliable task execution verification through computational proofs based on TEE signatures or zero-knowledge proofs (ZKPs).
 
-### Developer Documentation
 
-specy developer docs can be found on the Specy-network documentation website.
-
-https://specy-network.github.io/
 
 ## Setup
 
