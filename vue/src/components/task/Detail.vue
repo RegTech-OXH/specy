@@ -71,7 +71,7 @@
             <template #default="props">
               <div m="4" class="ml-10 p-3">
                 <p m="t-0 b-2">
-                  Input data : {{ props.row.cproof.inputdata.inputdatas }}
+                  Input data : {{ props.row.cproof.inpudata.inputdatas }}
                 </p>
                 <p m="t-0 b-2">
                   Output data : {{ props.row.cproof.outputdata }}
@@ -199,6 +199,7 @@ const getRecords = () => {
     try {
       const response = await records(task.value.owner, task.value.name);
       const resRecords = response.records;
+      // console.log(response.records);
 
       resRecords.sort((a, b) => a.position - b.position);
 
@@ -206,9 +207,11 @@ const getRecords = () => {
         const txHash = element.txHash;
         if (!trash.has(txHash)) {
           const res = await tx(element.txHash);
+          console.log(res.tx.body.messages[0]);
           const key = res.tx.body.messages[0].packet_data.data;
           if (!filterKey.has(key)) {
             filterKey.add(key);
+
             element["cproof"] = JSON.parse(res.tx.body.messages[0].cproof);
             element["timestamp"] = format(
               element.timestamp / 1000000,
